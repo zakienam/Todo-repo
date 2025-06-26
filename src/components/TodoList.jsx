@@ -74,6 +74,10 @@ const TodoList = ({flag, setFlag}) => {
     })
     return ()=> unsubscribe();
   }, [])
+
+  useEffect(() => {
+    console.log(todos);
+  }, [todos]);
  
   // useEffect(() => {
   //   fetchTodos();
@@ -134,7 +138,7 @@ const TodoList = ({flag, setFlag}) => {
                   <br /> 
                   <small className=" ">Date: {todo.date}</small> 
                 </div> 
-                <span className={`badge ${todo.status === "Completed" ? "bg-success" : "bg-warning"}`}>{todo.status}</span>
+                <span className={`badge ${todo.status === "completed" ? "bg-success" : "bg-warning"}`}>{todo.status}</span>
                 <div className="icons d-flex gap-3">
                   <button  className="btn border bg-info" onClick={()=>handleEdit(todo)}><FontAwesomeIcon icon={faPenToSquare} /> </button>
                   <button onClick={()=> handleDelete(todo.id)} className="btn border bg-danger"> <FontAwesomeIcon icon={faTrash} /> </button>
